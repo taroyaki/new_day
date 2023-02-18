@@ -64,8 +64,8 @@ def main(github_token, repo_name, ios_message, tele_token, tele_chat_id):
     #body = ios_message
     #body = f"{ios_message}\n"
     #body = ios_message['']
-    print(body)
-    issue.create_comment(body)
+    print(ios_message)
+    issue.create_comment(ios_message)
     #if ios_message:
     #    ios_message = f"现在的天气是{ios_message}\n"
         #body = ios_message# + early_message
