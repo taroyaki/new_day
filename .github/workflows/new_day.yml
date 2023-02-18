@@ -37,4 +37,4 @@ jobs:
       - name: GET UP
         run: |
           source venv/bin/activate
-          python get_up.py ${{ secrets.new_day }} ${{ github.repository }} --ios_message ": ${{ github.event.inputs.message }}" --tele_token ${{ secrets.TELE_TOKEN }} --tele_chat_id ${{ secrets.TELE_CHAT_ID }}
+          python new_day.py ${{ secrets.new_day }} ${{ github.repository }} --ios_message ": ${{ github.event.inputs.message }}" --tele_token ${{ secrets.TELE_TOKEN }} --tele_chat_id ${{ secrets.TELE_CHAT_ID }}
