@@ -1,7 +1,7 @@
 import argparse
 import requests
 import pendulum
-
+import json
 
 from github import Github
 
@@ -64,8 +64,8 @@ def main(github_token, repo_name, ios_message, tele_token, tele_chat_id):
     #early_message, is_get_up_early = make_get_up_message()
     #body = ios_message
     #body = f"{ios_message}\n"
-    #body = {ios_message}
-    issue.create_comment(ios_message)
+    body = ios_message['']
+    issue.create_comment(body)
     #if ios_message:
     #    ios_message = f"现在的天气是{ios_message}\n"
         #body = ios_message# + early_message
