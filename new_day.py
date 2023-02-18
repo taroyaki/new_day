@@ -30,7 +30,7 @@ def main(github_token, repo_name, ios_message, tele_token, tele_chat_id):
     issue = repo.get_issue(GET_UP_ISSUE_NUMBER)
     is_toady = get_today_get_up_status(issue)
     if is_toady:
-        print("Today I have recorded the wake up time")
+        print("Today I have recorded the wake up time.")
         return
     else:
         ios_message=ios_message[2:]  # 去掉前两个字符，否则会出现冒号加一个空格在最前面
