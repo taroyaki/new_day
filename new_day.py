@@ -64,6 +64,7 @@ def main(github_token, repo_name, ios_message, tele_token, tele_chat_id):
     #body = ios_message
     #body = f"{ios_message}\n"
     #body = ios_message['']
+    ios_message=ios_message[2:]
     print(ios_message)
     issue.create_comment(ios_message)
     #if ios_message:
