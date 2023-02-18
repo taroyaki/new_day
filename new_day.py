@@ -12,7 +12,7 @@ GET_UP_ISSUE_NUMBER = 1
 #)
 #SENTENCE_API = "https://v1.jinrishici.com/all"
 #DEFAULT_SENTENCE = "赏花归去马如飞\r\n去马如飞酒力微\r\n酒力微醒时已暮\r\n醒时已暮赏花归\r\n"
-#TIMEZONE = "Asia/Tokyo"
+TIMEZONE = "Asia/Tokyo"
 
 
 def login(token):
@@ -34,13 +34,13 @@ def get_today_get_up_status(issue):
     comments = list(issue.get_comments())
     if not comments:
         return False
-   # latest_comment = comments[-1]
-   # now = pendulum.now(TIMEZONE)
-   # latest_day = pendulum.instance(latest_comment.created_at).in_timezone(
-   #     "Asia/Tokyo"
-   # )
-   # is_today = (latest_day.day == now.day) and (latest_day.month == now.month)
-   # return is_today
+    latest_comment = comments[-1]
+    now = pendulum.now(TIMEZONE)
+    latest_day = pendulum.instance(latest_comment.created_at).in_timezone(
+        "Asia/Tokyo"
+    )
+    is_today = (latest_day.day == now.day) and (latest_day.month == now.month)
+    return is_today
 
 
 #def make_get_up_message():
@@ -58,12 +58,13 @@ def main(github_token, repo_name, ios_message, tele_token, tele_chat_id):
     repo = u.get_repo(repo_name)
     issue = repo.get_issue(GET_UP_ISSUE_NUMBER)
     is_toady = get_today_get_up_status(issue)
-    #if is_toady:
-    #    print("Today I have recorded the wake up time")
-    #    return
+    if is_toady:
+        print("Today I have recorded the wake up time")
+        return
     #early_message, is_get_up_early = make_get_up_message()
     #body = ios_message
     body = f"{ios_message}\n"
+    issue.create_comment(body)
     #if ios_message:
     #    ios_message = f"现在的天气是{ios_message}\n"
         #body = ios_message# + early_message
