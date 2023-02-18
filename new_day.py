@@ -89,7 +89,7 @@ if __name__ == "__main__":
     parser.add_argument("github_token", help="github_token")
     parser.add_argument("repo_name", help="repo_name")
     parser.add_argument(
-        "--weather_message", help="weather_message", nargs="?", default="", const=""
+        "--ios_message", help="ios_message", nargs="?", default="", const=""
     )
     parser.add_argument("--tele_token", help="tele_token", nargs="?", default="", const="")
     parser.add_argument("--tele_chat_id", help="tele_chat_id", nargs="?", default="", const="")
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     main(
         options.github_token,
         options.repo_name,
-        options.weather_message,
+        options.ios_message,
         options.tele_token,
         options.tele_chat_id,
     )
